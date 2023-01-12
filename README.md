@@ -2,9 +2,10 @@
 
 Proyecto creato en VITE
 
-Lista un listado de productos que salen de https://fakestoreapi.com/
-
-Un proyecto en construcción
+ - Presenta en un datatable un listado de productos que salen de https://fakestoreapi.com/
+ - Ofrece una ruta dinámica por cada producto, cargando su información correspondiente
+ 
+Un proyecto en construcción y sin diseño...
 
 > npm run start
 
