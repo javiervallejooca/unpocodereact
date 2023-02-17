@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Products from "./pages/Products";
 import PageNotFound from "./pages/PageNotFound";
+import Tasks from "./pages/Tasks";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route index element={<Home />}></Route>
             <Route path="productos" element={<Products />}></Route>
             <Route path="producto/:productId" element={<Product />}></Route>
+            <Route path="tareas" element={<Tasks />}></Route>
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
