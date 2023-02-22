@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import TaskDetail from "./TaskDetail";
 
-const ViewTasks = () => {
-  const [tasksList, setTasksList] = useState([]);
-
-  useEffect(() => {
-    setTasksList(JSON.parse(localStorage.getItem("tareas")));
-  }, []);
-
+const ViewTasks = ({ tasksList, setTasksList }) => {
   const handleDelete = (name) => {
-    let index = tasksList.findIndex((x) => x.name === name); // Busca el objeto con el nombre donde se ha hecho click.
-    tasksList.splice(index, 1); // Quita ese elemento.
-    setTasksList(tasksList); // Seteamos el array sin ese elemento.
+    // No debemos mutar el estado, por ello seteamos un nuevo array con filter. NOTA: Splice muta el array, no es recomendable usarlo con React.
+    setTasksList(tasksList.filter((task) => task.name !== name));
     localStorage.setItem("tareas", JSON.stringify(tasksList)); // Lo volcamos al localStorage.
   };
 
@@ -21,9 +15,10 @@ const ViewTasks = () => {
       {tasksList && tasksList.length > 0 ? (
         tasksList.map((task) => {
           return (
-            <p key={task.name} onClick={() => handleDelete(task.name)}>
-              {task.name}
-            </p>
+            <TaskDetail task={task} />
+            // <p key={task.name} onClick={() => handleDelete(task.name)}>
+            //   {task.name}
+            // </p>
           );
         })
       ) : (

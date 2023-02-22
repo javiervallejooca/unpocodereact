@@ -1,13 +1,16 @@
 import moment from "moment/moment";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const AddTask = (tasksList, setTasksList) => {
+const AddTask = ({ tasksList, setTasksList }) => {
   const [name, setName] = useState("");
 
   const handleNewTask = () => {
-    let array = [];
-    let previousTaks = JSON.parse(localStorage.getItem("tareas"));
-    previousTaks && previousTaks.map((task) => array.push(task));
+    // Control de tareas con mismo nombre.
+    if (tasksList.find((task) => task.name === name)) {
+      alert("Existe");
+      setName("");
+      return;
+    }
 
     const task = {
       name: name,
@@ -15,9 +18,9 @@ const AddTask = (tasksList, setTasksList) => {
       finished: false,
     };
 
-    array.push(task);
+    setTasksList([...tasksList, task]);
 
-    localStorage.setItem("tareas", JSON.stringify(array));
+    localStorage.setItem("tareas", JSON.stringify(tasksList));
     setName("");
   };
 

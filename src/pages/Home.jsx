@@ -8,6 +8,9 @@ const Home = () => {
       <Link className="my-2 btn btn-default" to="/productos">
         Ir a productos
       </Link>
+      <Link className="my-2 btn btn-default" to="/tareas">
+        Ir a tareas
+      </Link>
     </>
   );
 };
