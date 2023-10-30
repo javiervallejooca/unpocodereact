@@ -1,0 +1,7 @@
+#header {
+  background-color: #fff;
+  height: 80px;
+  top: 0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.08);
+}
