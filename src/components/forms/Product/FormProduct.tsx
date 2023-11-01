@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 
 import { ProductFormik } from "../../../interfaces/product";
 
+import { CRUD } from "../../../data/constants";
+
 import Categories from "./Categories";
 import ImageProduct from "./ImageProduct";
 
@@ -10,21 +12,21 @@ import { Button } from "primereact/button";
 import { classNames } from "primereact/utils";
 import { InputTextarea } from "primereact/inputtextarea";
 import { InputNumber } from "primereact/inputnumber";
-import { CRUD } from "../../../data/constants";
-import { Action } from "../../../interfaces/action";
+
+type Action = "read" | "create" | "update" | "delete";
 
 const FormProduct = ({
   action,
   formik,
 }: {
-  action?: Action;
+  action: Action;
   formik: ProductFormik;
 }) => {
   const { handleSubmit, values, isSubmitting, touched, errors } = formik;
 
   const navigate = useNavigate();
 
-  const readOnly = action?.toString() === CRUD.READ;
+  const readOnly = action === CRUD.READ;
 
   const isFormFieldInvalid = (name: keyof typeof values) => {
     return !!(touched[name] && errors[name]);

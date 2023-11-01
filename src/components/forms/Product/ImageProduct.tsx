@@ -1,16 +1,17 @@
 import { CRUD } from "../../../data/constants";
 
-import { Action } from "../../../interfaces/action";
 import { ProductFormik } from "../../../interfaces/product";
 
 import { Image } from "primereact/image";
 import { classNames } from "primereact/utils";
 
+type Action = "read" | "create" | "update" | "delete";
+
 const ImageProduct = ({
   action,
   formik,
 }: {
-  action?: Action;
+  action: Action;
   formik: ProductFormik;
 }) => {
   const { values, touched, errors } = formik;
@@ -64,7 +65,7 @@ const ImageProduct = ({
           preview
         />
       )}
-      {action?.toString() !== CRUD.READ && (
+      {action !== CRUD.READ && (
         <div className="mt-4">
           <input
             className={classNames({

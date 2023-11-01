@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 
 import { Product } from "../../interfaces/product";
-import { Action } from "../../interfaces/action";
 
 import { createProduct, updateProduct } from "../../services/products";
 
@@ -13,11 +12,13 @@ import { productValidationSchema } from "../../validation/products";
 
 import { useFormik } from "formik";
 
+type Action = "read" | "create" | "update" | "delete";
+
 const ProductDetail = ({
   action,
   data,
 }: {
-  action?: Action;
+  action: Action;
   data?: Product | null;
 }) => {
   const { id } = useParams();
@@ -45,13 +46,12 @@ const ProductDetail = ({
         // formData.append("price", values?.price);
         // formData.append("category", values?.category);
 
-        action?.toString() === CRUD.CREATE && (await createProduct(values));
-        action?.toString() === CRUD.UPDATE &&
-          (await updateProduct(Number(id), values));
+        action === CRUD.CREATE && (await createProduct(values));
+        action === CRUD.UPDATE && (await updateProduct(Number(id), values));
 
         showToast(
           `Producto ${
-            action?.toString() === CRUD.CREATE ? `creado` : `actualizado`
+            action === CRUD.CREATE ? `creado` : `actualizado`
           } correctamente`,
           TOAST_TYPE.SUCCESS
         );
@@ -60,7 +60,7 @@ const ProductDetail = ({
       } catch (error) {
         showToast(
           `Error al ${
-            action?.toString() === CRUD.CREATE ? `crear` : `actualizar`
+            action === CRUD.CREATE ? `crear` : `actualizar`
           } el producto`,
           TOAST_TYPE.ERROR
         );

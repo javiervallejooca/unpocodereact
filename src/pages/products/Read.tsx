@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 
 import { Product } from "../../interfaces/product";
-import { Action } from "../../interfaces/action";
 
 import { readProduct } from "../../services/products";
 import { useReadOne } from "../../hooks/useCRUD";
@@ -13,7 +12,7 @@ import Loading from "../../components/common/Loading";
 
 import { Divider } from "primereact/divider";
 
-const ReadOrUpdate = ({ action }: { action?: Action }) => {
+const Read = () => {
   const { id } = useParams();
 
   const { data, error, loading } = useReadOne<Product>(readProduct, Number(id));
@@ -23,14 +22,11 @@ const ReadOrUpdate = ({ action }: { action?: Action }) => {
 
   return (
     <div className="flex flex-column">
-      <h1 className="mb-0">
-        {action?.toString() === CRUD.READ ? "Ver detalle de" : "Actualizar"}{" "}
-        producto
-      </h1>
+      <h1 className="mb-0">Ver detalle de producto</h1>
       <Divider />
-      <ProductDetail action={action} data={data} />
+      <ProductDetail action={CRUD.READ} data={data} />
     </div>
   );
 };
 
-export default ReadOrUpdate;
+export default Read;
