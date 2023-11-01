@@ -8,8 +8,8 @@
 html,
 body {
   height: 100vh;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   color: #444;
 }
 
@@ -31,4 +31,8 @@ a {
 a:hover {
   color: #3b82f6;
   text-decoration: underline;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  padding: 0rem 0.5rem;
 }

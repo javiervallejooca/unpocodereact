@@ -11,8 +11,8 @@ const Layout = () => {
       <Header />
       <main className="flex flex-column align-items-center">
         <div
-          style={{ width: "100%", maxWidth: "1280px" }}
-          className="flex flex-column justify-content-center relative m-3 p-3"
+          style={{ maxWidth: "1280px" }}
+          className="flex flex-column justify-content-center relative m-3 p-3 w-full"
         >
           <ToastContainer />
           <Outlet />

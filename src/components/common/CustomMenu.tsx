@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
 import useUserStore from "../../zustand/userStore";
 
 import { ROUTES } from "../../data/routes";
@@ -7,6 +8,8 @@ import { AiOutlinePoweroff, AiOutlineUser } from "react-icons/ai";
 
 const CustomMenu = () => {
   const navigate = useNavigate();
+
+  const activeClassName = "text-blue-600";
 
   const { user, deleteUser } = useUserStore();
 
@@ -24,16 +27,24 @@ const CustomMenu = () => {
         </p>
       </div>
       <div className="flex gap-4 align-items-center">
-        <Link to={ROUTES.INDEX}>
+        <NavLink
+          className={({ isActive }) => (isActive ? activeClassName : undefined)}
+          to={ROUTES.INDEX}
+        >
           <p>Inicio</p>
-        </Link>
-        <Link to={ROUTES.PRODUCTS.LIST}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? activeClassName : undefined)}
+          to={ROUTES.PRODUCTS.LIST}
+        >
           <p>Productos</p>
-        </Link>
-        <Link to={ROUTES.ABOUT}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? activeClassName : undefined)}
+          to={ROUTES.ABOUT}
+        >
           <p>Acerca de</p>
-        </Link>
-
+        </NavLink>
         <p
           className="my-2 flex gap-1 align-items-center cursor-pointer"
           onClick={handleCloseSesion}

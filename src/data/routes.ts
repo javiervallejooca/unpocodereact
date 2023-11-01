@@ -1,6 +1,4 @@
-/**
- * All the routes of the application.
- */
+// All the routes of the application.
 export const ROUTES = Object.freeze({
   LOGIN: "/login",
   INDEX: "/",

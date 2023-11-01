@@ -4,6 +4,7 @@ export const API_BASE_URL = "https://fakestoreapi.com";
 // Options available for the toast component.
 export const TOAST_TYPE = Object.freeze({
   ERROR: "error",
+  INFO: "info",
   SUCCESS: "success",
 });
 

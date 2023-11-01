@@ -4,27 +4,27 @@
 
 Si has llegado hasta aquí seguramente quieras informarte acerca de este proyecto.
 
-ChatGPT, you shall not pass que diria Gandalf 🧙‍♂️
-
-No obstante y por si acaso, larga vida a Skynet.
+ChatGPT, you shall not pass, que diria Gandalf 🧙‍♂️
 
 ## Resumen
 
-Es un proyecto React con ficheros .tsx realizado con VITE.
+Es un proyecto React y TypeScript realizado con VITE.
 
 Mi idea original es poder usar este frontend para mi proyecto de MERN (Mongo, Express, React y Node), por lo que lo iré puliendo poco a poco.
 
 La versión de [node](https://nodejs.org/en) con la que se ha desarrollado es la 18.
 
-La parte funciona de los componentes se ha hecho con [Prime React](https://primereact.org/).
+Referido a la parte estética de componentes (botones y datatables) se ha hecho con [Prime React](https://primereact.org/).
 
 Siguiendo el mismo ecosistema usamos [Prime Flex](https://primeflex.org/), dado que se parece mucho a Tailwind CSS y permite estilar muy rápido.
 
 En cuanto a los iconos, algunos son de [Prime Icons](https://primereact.org/icons/) y otros son [React Icons](https://react-icons.github.io/react-icons/search)
 
-Se utiliza Axios para gestionar las llamadas a la API, que de momento **se usa la una API de prueba**, [Fake API Store](https://nodejs.org/en).
+Con casi estándar de Axios gestionamos las llamadas a la API, que de momento **se usa la una API de prueba**, [Fake API Store](https://nodejs.org/en).
 
 Como se indica en la documentación de la API, tan solo se pueden comprobar que las peticiones funcionan desde la consola del navegador, dado que **los datos no se modifican**.
+
+Por ello, hasta que se implemente una API propia, la funcionalidad queda supeditada al funcionamiento de Fake API Store.
 
 ### Esto es más feo que una nevera por detrás
 
@@ -61,7 +61,9 @@ Cuando una aplicación de JavaScript "se rompe" sale un pantallazo blanco, para 
 
 Se mejorará su estilo en futuros commits y pushes.
 
-## Expanding the ESLint configuration
+## Esto no es mio, pero lo dejo por si en el futuro lo necesito...
+
+### Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 

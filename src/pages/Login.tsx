@@ -14,13 +14,14 @@ import { Password } from "primereact/password";
 import "./styles/login.css";
 
 const Login = () => {
+  const { user, setUser } = useUserStore();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
   const navigate = useNavigate();
-  const { user, setUser } = useUserStore();
 
   const handleLogin = async () => {
     // TODO: Por hacer cuando se haga correctamente el login.
@@ -47,6 +48,8 @@ const Login = () => {
   };
 
   useEffect(() => {
+    console.log(user);
+
     if (user) {
       navigate(ROUTES.INDEX);
     }

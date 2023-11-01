@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Custom hook that fetches all data of a certain type using a callback function.
+ * @template T The type of data being fetched.
+ * @param {Function} callbackFn The callback function that fetches the data.
+ * @returns {Object} An object containing the fetched data, error message (if any), and loading state.
+ */
 export function useReadAll<T>(callbackFn: () => Promise<T[]>) {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -28,6 +34,13 @@ export function useReadAll<T>(callbackFn: () => Promise<T[]>) {
   return { data, error, loading };
 }
 
+/**
+ * Custom hook to fetch a single resource by id.
+ * @template T The type of the resource being fetched.
+ * @param {Function} callbackFn The function that fetches the resource.
+ * @param {number} id The id of the resource to fetch.
+ * @returns {Object} An object containing the fetched data, error message (if any), and loading status.
+ */
 export function useReadOne<T>(
   callbackFn: (id: number) => Promise<T>,
   id: number

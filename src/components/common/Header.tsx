@@ -27,21 +27,18 @@ const Header = () => {
       items: [
         {
           label: "Inicio",
-          icon: "pi pi-external-link",
           command: () => {
             navigate(ROUTES.INDEX);
           },
         },
         {
           label: "Productos",
-          icon: "pi pi-upload",
           command: () => {
             navigate(ROUTES.PRODUCTS.LIST);
           },
         },
         {
           label: "Acerca de",
-          icon: "pi pi-upload",
           command: () => {
             navigate(ROUTES.ABOUT);
           },
@@ -73,26 +70,28 @@ const Header = () => {
           />
         </Link>
       </div>
-      <div className="hidden lg:block">
-        <CustomMenu />
-      </div>
-      <div className="block lg:hidden">
-        <Menu
-          model={items}
-          popup
-          ref={menuRight}
-          id="popup_menu_right"
-          popupAlignment="right"
-        />
-        <Button
-          label="Menú"
-          icon="pi pi-align-right"
-          className="mr-2"
-          onClick={(event) => menuRight?.current?.toggle(event)}
-          aria-controls="popup_menu_right"
-          aria-haspopup
-        />
-      </div>
+      <nav>
+        <div className="hidden lg:block desktop-menu">
+          <CustomMenu />
+        </div>
+        <div className="block lg:hidden mobile-menu">
+          <Menu
+            model={items}
+            popup
+            ref={menuRight}
+            id="popup_menu_right"
+            popupAlignment="right"
+          />
+          <Button
+            label="Menú"
+            icon="pi pi-align-right"
+            className="mr-2"
+            onClick={(event) => menuRight?.current?.toggle(event)}
+            aria-controls="popup_menu_right"
+            aria-haspopup
+          />
+        </div>
+      </nav>
     </header>
   );
 };

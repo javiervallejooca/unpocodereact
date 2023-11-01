@@ -8,7 +8,7 @@ import axios from "axios";
 const DEFAULT_URL = API_BASE_URL + ENDPOINTS.PRODUCTOS;
 
 /**
- * Retrieves a list of products from the server.
+ * Retrieves a list of products.
  * @returns A Promise that resolves to an array of Product objects.
  */
 export async function readProducts(): Promise<Product[]> {
@@ -17,7 +17,7 @@ export async function readProducts(): Promise<Product[]> {
 }
 
 /**
- * Retrieves a product from the server by its ID.
+ * Retrieves a product by the ID.
  * @param id - The ID of the product to retrieve.
  * @returns A Promise that resolves to the retrieved Product object.
  */
@@ -47,18 +47,18 @@ export async function updateProduct(
   id: number,
   data: Partial<Product>
 ): Promise<Product> {
-  const url = DEFAULT_URL + id;
+  const url = DEFAULT_URL + "/" + id;
   const response = await axios.put(url, data);
   return response.data;
 }
 
 /**
- * Deletes a product with the specified ID from the server.
+ * Deletes a product by ID.
  * @param id The ID of the product to delete.
  * @returns A Promise that resolves with the deleted Product object.
  */
 export async function deleteProduct(id: number): Promise<Product> {
-  const url = DEFAULT_URL + id;
+  const url = DEFAULT_URL + "/" + id;
   const response = await axios.delete(url);
   return response.data;
 }
