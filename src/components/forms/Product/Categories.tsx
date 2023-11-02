@@ -6,13 +6,14 @@ import { useReadAll } from "../../../hooks/useCRUD";
 import { CRUD } from "../../../data/constants";
 
 import { Dropdown } from "primereact/dropdown";
-import { Action } from "../../../interfaces/action";
+
+type Action = "read" | "create" | "update" | "delete";
 
 const Categories = ({
   action,
   formik,
 }: {
-  action?: Action;
+  action: Action;
   formik: ProductFormik;
 }) => {
   const { data, loading, error } = useReadAll(readCategories);
@@ -29,7 +30,7 @@ const Categories = ({
   return (
     <Dropdown
       className="w-full"
-      disabled={action?.toString() === CRUD.READ}
+      disabled={action === CRUD.READ}
       onChange={(e) => {
         formik.setFieldValue("category", e.value);
       }}
